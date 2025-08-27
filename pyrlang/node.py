@@ -596,7 +596,7 @@ class Node:
             return self._demonitor_local_process(origin_pid, target_pid,
                                                  ref=ref)
         # Target process is remote, and we need to send monitor message
-        return self._demonitor_remote_process(origin_pid, target_pid, ref=ref)
+        return await self._demonitor_remote_process(origin_pid, target_pid, ref=ref)
 
     async def _demonitor_remote_process(self, origin_pid: Pid, target_pid: Pid,
                                         ref: Reference):
