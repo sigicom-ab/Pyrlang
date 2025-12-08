@@ -14,7 +14,7 @@
 import asyncio
 import logging
 import sys
-from typing import Dict, Set
+from typing import Dict, Set, Tuple
 
 from pyrlang.dist_proto import DistributionFlags, ErlangDistribution
 from pyrlang.dist_proto.base_dist_protocol import BaseDistProtocol
