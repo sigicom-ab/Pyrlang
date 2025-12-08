@@ -320,7 +320,7 @@ class Node:
         """
         return self.node_opts_.cookie_
 
-    async def dist_command(self, receiver_node: str, message: tuple) -> None:
+    async def dist_command(self, receiver_node: str, message: Tuple) -> None:
         """ Locate the connection to the given node (a string).
             Place a tuple crafted by the caller into message box for Erlang
             dist_proto socket. It will pick up and handle the message whenever

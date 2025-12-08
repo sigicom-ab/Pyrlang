@@ -153,7 +153,7 @@ class EPMDClient(asyncio.Protocol):
 
     @staticmethod
     def _make_req_alive2(nodetype: int, name0: str, in_port: int,
-                         dist_vsn: tuple, extra0: str):
+                         dist_vsn: Tuple, extra0: str):
         extra = bytes(extra0, "latin1")
         name = bytes(name0.split("@")[0], "utf8")
 
@@ -168,7 +168,7 @@ class EPMDClient(asyncio.Protocol):
         return msg1 + msg2 + msg3
 
     async def _req_alive2(self, nodetype: int, node_name: str, in_port: int,
-                          dist_vsn: tuple, extra: str):
+                          dist_vsn: Tuple, extra: str):
         msg = self._make_req_alive2(nodetype, node_name, in_port,
                                     dist_vsn, extra)
         LOG.debug("sending ALIVE2 req n=%s (%s) vsn=%s",
@@ -186,7 +186,7 @@ class EPMDClient(asyncio.Protocol):
         self.writer_.write(header + req)
 
     @staticmethod
-    async def query_node(node_name: str) -> Optional[tuple[str, int, int]]:
+    async def query_node(node_name: str) -> Optional[Tuple[str, int, int]]:
         """ Query EPMD about the port to the given node.
 
             :param node_name: String with node "name@ip" or "name@hostname"

@@ -53,7 +53,7 @@ class Notebook(GenServer):
         in subsequent calls.
     """
 
-    def __init__(self, options: dict):
+    def __init__(self, options: Dict):
         super().__init__()
 
         self.history_ = dict()  # type: Dict[Term, Term]
@@ -201,7 +201,7 @@ class Notebook(GenServer):
 
         return self.history_[k]
 
-    def _resolve_valuerefs_in_args(self, args: list):
+    def _resolve_valuerefs_in_args(self, args: List):
         """ For list of args, find pyrlangval references and resolve them from
             the history dict.
         """
@@ -214,7 +214,7 @@ class Notebook(GenServer):
 
         return list(map(resolve_arg, args))
 
-    def _resolve_valuerefs_in_kwargs(self, dct: dict):
+    def _resolve_valuerefs_in_kwargs(self, dct: Dict):
         """ For a dict of args, find pyrlangval references in dict values and
             resolve them from the history dict.
         """
@@ -235,7 +235,7 @@ class Notebook(GenServer):
         return Atom('ok')
 
 
-def new_context(options: dict) -> Pid:
+def new_context(options: Dict) -> Pid:
     """ Create a new remote-call notebook context. Node_name argument will be
         automatically prepended to args by Rex.
     """
